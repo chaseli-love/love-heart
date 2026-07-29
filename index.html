@@ -5,7 +5,8 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <title>
 送给沈谷桐宝宝 ❤️
@@ -18,14 +19,21 @@
 *{
 margin:0;
 padding:0;
+box-sizing:border-box;
 }
 
 
-body{
+html,body{
+
+width:100%;
+
+height:100%;
 
 overflow:hidden;
 
 background:black;
+
+font-family:"Microsoft YaHei";
 
 }
 
@@ -39,28 +47,41 @@ top:0;
 
 left:0;
 
+width:100%;
+
+height:100%;
+
 }
 
 
 
+/* =================
+开场
+================= */
 
-/* 开场 */
 
 #intro{
 
 position:fixed;
 
+top:0;
+
+left:0;
+
 width:100%;
 
 height:100%;
 
+
 background:black;
+
 
 z-index:100;
 
 
 animation:
-hideIntro 5s forwards;
+introHide 5s forwards;
+
 
 }
 
@@ -68,9 +89,12 @@ hideIntro 5s forwards;
 
 .introText{
 
+
 position:absolute;
 
+
 top:50%;
+
 
 left:50%;
 
@@ -79,19 +103,33 @@ transform:
 translate(-50%,-50%);
 
 
+text-align:center;
+
+
 color:white;
 
 
 font-size:38px;
 
 
-text-align:center;
+line-height:1.6;
 
 
 text-shadow:
 
 0 0 20px pink,
+
 0 0 60px red;
+
+
+}
+
+
+
+.introText small{
+
+
+font-size:18px;
 
 
 }
@@ -100,12 +138,14 @@ text-shadow:
 
 .meteor{
 
+
 position:absolute;
 
 
-width:5px;
+width:4px;
 
-height:200px;
+
+height:180px;
 
 
 background:
@@ -116,26 +156,30 @@ transparent
 );
 
 
+
 transform:
 
 rotate(45deg);
 
 
+
 top:-200px;
+
 
 left:80%;
 
 
+
 animation:
 
-meteor 2s infinite;
+meteorMove 2s infinite;
 
 
 }
 
 
 
-@keyframes meteor{
+@keyframes meteorMove{
 
 
 0%{
@@ -144,7 +188,10 @@ top:-200px;
 
 left:90%;
 
+opacity:1;
+
 }
+
 
 
 100%{
@@ -153,6 +200,8 @@ top:100%;
 
 left:10%;
 
+opacity:0;
+
 }
 
 
@@ -161,7 +210,8 @@ left:10%;
 
 
 
-@keyframes hideIntro{
+
+@keyframes introHide{
 
 
 0%{
@@ -171,11 +221,13 @@ opacity:1;
 }
 
 
-80%{
+
+85%{
 
 opacity:1;
 
 }
+
 
 
 100%{
@@ -193,7 +245,11 @@ visibility:hidden;
 
 
 
-/* 中心文字 */
+
+
+/* =================
+中心文字
+================= */
 
 
 #loveText{
@@ -204,12 +260,17 @@ position:absolute;
 
 top:50%;
 
+
 left:50%;
 
 
 transform:
+
 translate(-50%,-50%);
 
+
+
+z-index:20;
 
 
 color:white;
@@ -221,55 +282,74 @@ font-size:38px;
 text-align:center;
 
 
-z-index:20;
-
 
 text-shadow:
 
+
 0 0 20px pink,
+
+
 0 0 50px red;
 
 
-animation:pulse 2s infinite;
+
+animation:
+
+heartText 2s infinite alternate;
 
 
 }
 
 
 
-@keyframes pulse{
+@keyframes heartText{
 
 
-0%{
+from{
 
 scale:1;
 
 }
 
 
-100%{
 
-scale:1.1;
+to{
 
-}
-
+scale:1.08;
 
 }
 
 
+}
 
 
 
-/*照片区域*/
+
+
+
+
+/* =================
+照片区域
+================= */
 
 
 #photos{
 
+
 position:absolute;
+
+
+top:0;
+
+
+left:0;
+
 
 width:100%;
 
+
 height:100%;
+
 
 
 z-index:10;
@@ -277,7 +357,9 @@ z-index:10;
 
 pointer-events:none;
 
+
 }
+
 
 
 
@@ -288,23 +370,39 @@ pointer-events:none;
 position:absolute;
 
 
+
 object-fit:cover;
+
 
 
 border-radius:18px;
 
 
+
+border:3px solid rgba(255,255,255,.6);
+
+
+
 box-shadow:
 
-0 0 30px pink;
+
+0 0 25px pink,
+
+0 0 50px rgba(255,0,120,.5);
+
 
 
 opacity:0;
 
 
-animation:
 
-floatPhoto 15s infinite;
+transition:
+
+
+opacity 2s ease,
+
+transform 5s ease;
+
 
 
 }
@@ -312,73 +410,9 @@ floatPhoto 15s infinite;
 
 
 
-@keyframes floatPhoto{
-
-
-0%{
-
-opacity:0;
-
-transform:
-
-scale(.7)
-translateY(100px)
-rotate(-15deg);
-
-
-}
-
-
-20%{
-
-opacity:1;
-
-}
-
-
-50%{
-
-opacity:1;
-
-
-transform:
-
-scale(1)
-translateY(0)
-rotate(0);
-
-
-}
-
-
-80%{
-
-opacity:.8;
-
-
-}
-
-
-100%{
-
-opacity:0;
-
-
-transform:
-
-scale(.7)
-translateY(-100px)
-rotate(15deg);
-
-
-}
-
-
-}
-
-
-
-
+/* =================
+播放按钮
+================= */
 
 
 #btn{
@@ -387,10 +421,11 @@ rotate(15deg);
 position:absolute;
 
 
-bottom:40px;
-
-
 left:50%;
+
+
+bottom:35px;
+
 
 
 transform:
@@ -399,15 +434,22 @@ translateX(-50%);
 
 
 
+z-index:50;
+
+
+
 padding:
 
 12px 30px;
 
 
+
 border:none;
 
 
+
 border-radius:30px;
+
 
 
 background:
@@ -415,13 +457,18 @@ background:
 rgba(255,0,120,.8);
 
 
+
 color:white;
+
 
 
 font-size:18px;
 
 
-z-index:50;
+
+box-shadow:
+
+0 0 20px pink;
 
 
 }
@@ -429,23 +476,38 @@ z-index:50;
 
 
 
+
+/* 闪光 */
+
 #flash{
 
 
 position:fixed;
 
+
+top:0;
+
+
+left:0;
+
+
 width:100%;
 
+
 height:100%;
+
 
 
 background:white;
 
 
+
 opacity:0;
 
 
+
 z-index:200;
+
 
 
 pointer-events:none;
@@ -460,16 +522,22 @@ pointer-events:none;
 </head>
 
 
+
 <body>
 
 
 
 <audio id="music" loop>
 
-<source src="love.mp3">
+
+<source src="love.mp3" type="audio/mpeg">
+
 
 </audio>
 
+
+
+<!-- 开场 -->
 
 
 <div id="intro">
@@ -478,10 +546,12 @@ pointer-events:none;
 <div class="meteor"></div>
 
 
+
 <div class="introText">
 
 
 ✨<br>
+
 
 沈谷桐宝宝 ❤️
 
@@ -496,11 +566,12 @@ pointer-events:none;
 </small>
 
 
-</div>
-
 
 </div>
 
+
+
+</div>
 
 
 
@@ -509,25 +580,42 @@ pointer-events:none;
 
 
 
+
+
+<!-- 中心文字 -->
+
+
 <div id="loveText">
+
 
 送给<br>
 
+
 沈谷桐宝宝 ❤️
+
 
 </div>
 
+
+
+
+<!-- 照片容器 -->
 
 
 <div id="photos"></div>
 
 
 
+
+
 <button id="btn">
+
 
 点击播放音乐 🎵
 
+
 </button>
+
 
 
 
@@ -535,127 +623,80 @@ pointer-events:none;
 
 
 
+
+
 <script>
 
-  const canvas =
+  // =====================
+// 初始化画布
+// =====================
+
+
+const canvas =
 document.getElementById("canvas");
+
 
 const ctx =
 canvas.getContext("2d");
 
 
+
 function resize(){
+
 
 canvas.width =
 window.innerWidth;
 
+
 canvas.height =
 window.innerHeight;
 
+
 }
+
+
 
 resize();
 
-window.onresize=resize;
+
+window.addEventListener(
+"resize",
+resize
+);
 
 
 
-// =================
+
+
+// =====================
 // 星空
-// =================
+// =====================
+
 
 let stars=[];
 
 
-for(let i=0;i<300;i++){
+
+for(let i=0;i<250;i++){
+
 
 stars.push({
 
-x:Math.random()*canvas.width,
 
-y:Math.random()*canvas.height,
+x:
+Math.random()*canvas.width,
 
-r:Math.random()*2+0.5
+
+y:
+Math.random()*canvas.height,
+
+
+r:
+Math.random()*2+0.5
+
 
 });
 
-}
-
-
-
-
-// =================
-// 生成30张照片
-// =================
-
-
-let photoBox =
-document.getElementById("photos");
-
-
-
-for(let i=1;i<=30;i++){
-
-
-let img =
-document.createElement("img");
-
-
-img.src =
-i+".jpg";
-
-
-img.className="photo";
-
-
-// 避开中心爱心
-
-let angle =
-Math.random()*Math.PI*2;
-
-
-let radius =
-260+
-Math.random()*200;
-
-
-
-let x =
-canvas.width/2+
-Math.cos(angle)*radius;
-
-
-
-let y =
-canvas.height/2+
-Math.sin(angle)*radius;
-
-
-
-img.style.left=x+"px";
-
-img.style.top=y+"px";
-
-
-
-let size =
-70+
-Math.random()*50;
-
-
-img.style.width=size+"px";
-
-img.style.height=size*1.35+"px";
-
-
-
-img.style.animationDelay =
-Math.random()*15+"s";
-
-
-
-photoBox.appendChild(img);
-
 
 }
 
@@ -664,15 +705,17 @@ photoBox.appendChild(img);
 
 
 
-// =================
+
+// =====================
 // 爱心粒子
-// =================
+// =====================
 
 
 let particles=[];
 
 
-for(let i=0;i<1800;i++){
+
+for(let i=0;i<1500;i++){
 
 
 
@@ -699,22 +742,24 @@ particles.push({
 
 x:
 (Math.random()-0.5)
-*canvas.width*2,
+*
+canvas.width*1.5,
 
 
 y:
 (Math.random()-0.5)
-*canvas.height*2,
+*
+canvas.height*1.5,
 
 
 z:
 Math.random()*200-100,
 
 
-targetX:x*12,
+targetX:x*10,
 
 
-targetY:-y*12,
+targetY:-y*10,
 
 
 size:
@@ -732,22 +777,299 @@ Math.random()*2+1
 let forming=true;
 
 
-let formCount=0;
+let formTime=0;
 
 
 let rotate=0;
 
 
 
-// =================
-// 爆炸粒子
-// =================
+
+
+// =====================
+// 照片系统
+// =====================
+
+
+let photoBox =
+document.getElementById("photos");
+
+
+
+let photos=[];
+
+
+
+for(let i=1;i<=30;i++){
+
+
+let img =
+document.createElement("img");
+
+
+img.src =
+i+".jpg";
+
+
+img.className="photo";
+
+
+
+let size;
+
+
+
+if(window.innerWidth<600){
+
+
+size =
+55+
+Math.random()*25;
+
+
+}
+
+else{
+
+
+size =
+80+
+Math.random()*40;
+
+
+}
+
+
+
+img.style.width=size+"px";
+
+
+img.style.height=
+size*1.35+"px";
+
+
+
+photoBox.appendChild(img);
+
+
+
+photos.push(img);
+
+
+}
+
+
+
+
+
+
+let photoIndex=0;
+
+
+
+
+// 显示4张照片
+
+
+function showPhotos(){
+
+
+
+// 全部隐藏
+
+photos.forEach(p=>{
+
+
+p.style.opacity=0;
+
+
+});
+
+
+
+
+let count=4;
+
+
+
+for(let i=0;i<count;i++){
+
+
+
+if(photoIndex>=30){
+
+photoIndex=0;
+
+}
+
+
+
+let img =
+photos[photoIndex];
+
+
+
+photoIndex++;
+
+
+
+
+
+// 手机适配范围
+
+
+let w =
+canvas.width;
+
+
+let h =
+canvas.height;
+
+
+
+let positions=[
+
+
+
+{
+
+x:w*0.15,
+
+y:h*0.25
+
+},
+
+
+
+{
+
+x:w*0.65,
+
+y:h*0.25
+
+},
+
+
+
+{
+
+x:w*0.12,
+
+y:h*0.65
+
+},
+
+
+
+{
+
+x:w*0.68,
+
+y:h*0.65
+
+}
+
+
+];
+
+
+
+let pos =
+positions[i];
+
+
+
+img.style.left =
+pos.x+"px";
+
+
+img.style.top =
+pos.y+"px";
+
+
+
+
+img.style.transform=
+
+`
+rotate(
+${Math.random()*20-10}deg
+)
+scale(1)
+`;
+
+
+
+img.style.opacity=1;
+
+
+}
+
+
+
+
+// 停留5秒
+
+
+setTimeout(()=>{
+
+
+for(let i=0;i<count;i++){
+
+
+photos[
+(photoIndex-count+i+30)%30
+]
+.style.opacity=0;
+
+
+}
+
+
+},5000);
+
+
+}
+
+
+
+
+
+// 每6秒换一组
+
+
+showPhotos();
+
+
+setInterval(
+
+showPhotos,
+
+6500
+
+);
+
+
+
+
+
+
+
+
+// =====================
+// 爱心爆炸
+// =====================
+
 
 let boom=[];
 
 
 
-canvas.onclick=function(e){
+
+canvas.addEventListener(
+"click",
+function(e){
+
 
 
 for(let i=0;i<100;i++){
@@ -755,9 +1077,12 @@ for(let i=0;i<100;i++){
 
 boom.push({
 
+
 x:e.clientX,
 
+
 y:e.clientY,
+
 
 
 vx:
@@ -771,39 +1096,49 @@ vy:
 life:80
 
 
+
 });
 
 
 }
 
 
-};
+
+});
 
 
 
 
 
 
-// =================
-// 绘制
-// =================
+// =====================
+// 绘制动画
+// =====================
+
 
 
 function draw(){
 
 
+
 ctx.fillStyle=
+
 "rgba(0,0,20,0.35)";
 
 
 ctx.fillRect(
 
 0,
+
 0,
+
 canvas.width,
+
 canvas.height
 
 );
+
+
 
 
 
@@ -814,16 +1149,25 @@ canvas.height
 stars.forEach(s=>{
 
 
+
 ctx.beginPath();
 
 
+
 ctx.arc(
+
 s.x,
+
 s.y,
+
 s.r,
+
 0,
+
 Math.PI*2
+
 );
+
 
 
 ctx.fillStyle="white";
@@ -837,29 +1181,34 @@ ctx.fill();
 
 
 
-// 星光汇聚
+
+
+// 爱心形成
 
 
 if(forming){
 
 
-formCount++;
+formTime++;
+
 
 
 particles.forEach(p=>{
 
 
 p.x +=
+
 (p.targetX-p.x)
 *
-0.025;
+0.02;
 
 
 
 p.y +=
+
 (p.targetY-p.y)
 *
-0.025;
+0.02;
 
 
 
@@ -867,7 +1216,7 @@ p.y +=
 
 
 
-if(formCount>180){
+if(formTime>200){
 
 
 forming=false;
@@ -875,18 +1224,24 @@ forming=false;
 
 }
 
+
+
 }
 
 
 
-// 爱心旋转
+
 
 
 if(!forming){
 
+
 rotate+=0.015;
 
+
 }
+
+
 
 
 
@@ -900,39 +1255,55 @@ canvas.height/2;
 
 
 
+
+
 particles.forEach(p=>{
 
 
 
 let x =
+
 p.x*Math.cos(rotate)
+
 -
+
 p.z*Math.sin(rotate);
 
 
 
 let z =
+
 p.x*Math.sin(rotate)
+
 +
+
 p.z*Math.cos(rotate);
 
 
 
-let scale =
+
+let scale=
+
 350/(350+z);
 
 
 
-let px =
+
+let px=
+
 cx+x*scale;
 
 
-let py =
+
+let py=
+
 cy+p.y*scale;
 
 
 
+
 ctx.beginPath();
+
 
 
 ctx.arc(
@@ -951,17 +1322,21 @@ Math.PI*2
 
 
 
+
 ctx.fillStyle=
 
-"rgb(255,100,180)";
+"rgb(255,80,160)";
+
 
 
 ctx.shadowBlur=20;
+
 
 ctx.shadowColor="pink";
 
 
 ctx.fill();
+
 
 
 });
@@ -970,18 +1345,20 @@ ctx.fill();
 
 
 
-// 爆炸
+// 爆炸粒子
 
 
-boom.forEach((p,i)=>{
+boom.forEach((p,index)=>{
 
 
 p.x+=p.vx;
+
 
 p.y+=p.vy;
 
 
 p.life--;
+
 
 
 ctx.beginPath();
@@ -1002,6 +1379,7 @@ Math.PI*2
 );
 
 
+
 ctx.fillStyle="pink";
 
 
@@ -1011,9 +1389,12 @@ ctx.fill();
 
 if(p.life<=0){
 
-boom.splice(i,1);
+
+boom.splice(index,1);
+
 
 }
+
 
 
 });
@@ -1028,40 +1409,43 @@ requestAnimationFrame(draw);
 }
 
 
+
+
 draw();
 
-
-
-
-
-
-
-// =================
-// 爱心形成闪光
-// =================
+  // =====================
+// 爱心形成瞬间闪光
+// =====================
 
 
 setTimeout(()=>{
 
 
-let f=
+let flash =
 document.getElementById("flash");
 
 
-f.style.transition="0.5s";
 
-f.style.opacity="0.8";
+flash.style.transition =
+"opacity 0.5s";
+
+
+flash.style.opacity =
+"0.8";
+
 
 
 setTimeout(()=>{
 
-f.style.opacity="0";
+
+flash.style.opacity="0";
+
 
 },300);
 
 
 
-},5000);
+},5200);
 
 
 
@@ -1069,29 +1453,48 @@ f.style.opacity="0";
 
 
 
-
-// =================
-// 音乐
-// =================
-
-
-document
-.getElementById("btn")
-.onclick=function(){
+// =====================
+// 音乐播放
+// =====================
 
 
-document
-.getElementById("music")
-.play();
+const music =
+document.getElementById("music");
 
 
-this.innerHTML=
+const btn =
+document.getElementById("btn");
+
+
+
+btn.onclick=function(){
+
+
+
+music.play()
+.then(()=>{
+
+
+btn.innerHTML=
 "正在播放 ❤️";
 
 
-};
+})
+.catch(()=>{
 
-  </script>
+
+alert(
+"请再次点击播放音乐"
+);
+
+
+});
+
+
+
+};
+</script>
+
 
 </body>
 
