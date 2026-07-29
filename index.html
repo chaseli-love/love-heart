@@ -118,12 +118,199 @@ rgba(255,0,100,.7);
 
 </style>
 
+  /* 开场动画 */
+
+#intro{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:black;
+
+z-index:999;
+
+animation:
+hideIntro 4s forwards;
+
+}
+
+
+
+.intro-text{
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:
+translate(-50%,-50%);
+
+text-align:center;
+
+color:white;
+
+font-size:35px;
+
+text-shadow:
+0 0 20px pink,
+0 0 40px red;
+
+animation:
+showText 3s;
+
+}
+
+
+
+.intro-text small{
+
+font-size:18px;
+
+}
+
+
+
+@keyframes showText{
+
+
+0%{
+
+opacity:0;
+
+transform:
+translate(-50%,-40%);
+
+}
+
+
+50%{
+
+opacity:1;
+
+}
+
+
+100%{
+
+opacity:1;
+
+}
+
+
+}
+
+
+
+.meteor{
+
+
+position:absolute;
+
+width:3px;
+
+height:150px;
+
+background:
+linear-gradient(
+white,
+transparent
+);
+
+
+top:-150px;
+
+left:70%;
+
+
+transform:
+rotate(45deg);
+
+
+animation:
+meteorMove 2s infinite;
+
+
+}
+
+
+
+@keyframes meteorMove{
+
+
+0%{
+
+top:-200px;
+
+left:80%;
+
+}
+
+
+100%{
+
+top:100%;
+
+left:20%;
+
+}
+
+
+}
+
+
+
+@keyframes hideIntro{
+
+
+0%{
+
+opacity:1;
+
+}
+
+
+85%{
+
+opacity:1;
+
+}
+
+
+100%{
+
+opacity:0;
+
+visibility:hidden;
+
+}
+
+
+}
 
 </head>
 
 
 <body>
 
+  <div id="intro">
+
+    <div class="meteor"></div>
+
+    <div class="intro-text">
+        <span>✨</span><br>
+        沈谷桐宝宝 ❤️<br>
+        <small>
+        正在为你准备一份礼物
+        </small>
+    </div>
+
+</div>
 
 <audio id="music" loop preload="auto">
 
